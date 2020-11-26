@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+    crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+    crossorigin="anonymous"></script> <link rel="stylesheet" href="{% static 'css/myStyle.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+</head>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0614c;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="{% url 'index' %}"> <img class="img-fluid" src="{% static 'images/LOGO2.png' %}"alt=""></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">HOME <span class="sr-only">(current)</span></a>
+      </li>
+      &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Service' %}">SERVICE</a>
+      </li>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contact' %}">CONTACT US</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+      &nbsp;&nbsp;
+    </form>
+    
+    {% if not user.is_authenticated %}
+    <a href="{% url 'signup' %}"button type="button" class="btn btn-danger">REGISTER</button></a>
+    &nbsp;
+    <a href="{% url 'login' %}" button class="btn btn-outline-warning my-2 my-sm-0"  type="submit">LOGIN</button></a>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <div class="dropdown">
+      <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span>{{request.user.username}}</span>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      
+       <a href="{% url 'user_login' %}"> <button class="dropdown-item" type="button">MY BOOK</button></a>
+      
+        <div class="dropdown-divider"></div>
+        <form action="{% url 'logout' %}" method="POST" novalidate>
+          &nbsp; &nbsp;
+          {% csrf_token %}
+          <button type="submit" class="btn btn-outline-warning my-2 my-sm-0">LOGOUT</button>
+        </form>
+      </div>
+    </div>   
+    {% endif %}
+  </div>
+</nav>
+<body>  
+        {% block content %}
+        Body content
+        {% endblock %}
+      
+        <!-- Site footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h2>About</h2>
+            <p class="text-justify">
+              
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1937.9057649281635!2d100.77774950019348!3d13.72985762356336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d664988a1bedf%3A0xcc678f180e221cd0!2z4Liq4LiW4Liy4Lia4Lix4LiZ4LmA4LiX4LiE4LmC4LiZ4LmC4Lil4Lii4Li14Lie4Lij4Liw4LiI4Lit4Lih4LmA4LiB4Lil4LmJ4Liy4LmA4LiI4LmJ4Liy4LiE4Li44LiT4LiX4Lir4Liy4Lij4Lil4Liy4LiU4LiB4Lij4Liw4Lia4Lix4LiH!5e0!3m2!1sth!2sth!4v1603903404086!5m2!1sth!2sth" width="400" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h2>CATEGORY BOOK</h2>
+            <ul class="footer-links">
+              <h4>
+              <li><a href="{% url 'Book_Page_cartoon' %}">CARTOON</a></li>
+              <li><a href="#">HISTORY</a></li>
+              <li><a href="#">NOVEL</a></li>
+              <li><a href="#">FICTION Y</a></li>
+              </h4>
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h2>COMFORT BOOK</h2>
+            <ul class="footer-links">
+              <h4>
+              <li><a href="{% url 'index' %}">HOME</a></li>
+              <li><a href="{% url 'Service' %}">SERVICE</a></li>
+              <li><a href="#">CONTACT US</a></li>
+              <li><a href="#">LOGIN</a></li>
+              </h4>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Address @ 1 Chalongkrung Road, Lam Pla Thew Subdistrict, Lat Krabang District, Bangkok 10520</p> 
+         <a href="#">Scanfcode</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</html>

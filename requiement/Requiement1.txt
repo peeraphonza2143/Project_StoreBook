@@ -1,0 +1,8 @@
+- material.io (disign)
+-   การเก็บแบบ blob binary last opject แปลงจาก block เป็น binary (dep)
+-   แยกหนังสือฝ่านรหัสหนังสือต่างๆ (requiement) 
+--------------------------------------------------------------
+trip 
+oauth Login/log out
+css trick //เว็บเรียน css
+css grid

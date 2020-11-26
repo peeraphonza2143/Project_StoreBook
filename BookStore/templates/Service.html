@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}To-Do App : Home{% endblock %}
+
+{% block content %}
+<div class="wallpaper">
+    <div class="text-wrapper">
+        <h1 class="text">ANAY BOOK</h1>
+        <p class="text">
+         Select a book in web page
+        </p>
+        <a href="{% url 'Book_Page' %}" type="button" class="btn btn-outline-warning">LES'T Take Book</a>
+        </div>
+</div>
+
+{% endblock %}

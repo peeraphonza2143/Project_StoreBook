@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}To-Do App : Home{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+  <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+  <div class="row no-gutters">
+    <a class="portfolio-item" href="{% url 'Book_Page_cartoon' %}">
+      <span class="caption">
+        <span class="caption-content">
+         <h1>CARTOON</h1>
+        
+        </span>
+      </span>
+      <img class="img-fluid" src="{% static 'images/booktype1.png' %}"alt="">
+    </a>
+  </div>
+  <br>
+
+  <div class="row no-gutters">
+    <a class="portfolio-item" href="{% url 'Book_Page_cartoon' %}">
+      <span class="caption">
+        <span class="caption-content">
+         <h1>CHILDREN'S</h1>
+        
+        </span>
+      </span>
+      <img class="img-fluid" src="{% static 'images/booktype2.png' %}"alt="">
+    </a>
+  </div>
+  <br>
+
+  <div class="row no-gutters">
+    <a class="portfolio-item" href="{% url 'Book_Page_cartoon' %}">
+      <span class="caption">
+        <span class="caption-content">
+         <h1>CRIME THRILER</h1>
+        
+        </span>
+      </span>
+      <img class="img-fluid" src="{% static 'images/booktype3.png' %}"alt="">
+    </a>
+  </div>
+  <br>
+
+  <div class="row no-gutters">
+    <a class="portfolio-item" href="{% url 'Book_Page_cartoon' %}">
+      <span class="caption">
+        <span class="caption-content">
+         <h1>FOOD</h1>
+        
+        </span>
+      </span>
+      <img class="img-fluid" src="{% static 'images/booktype4.png' %}"alt="">
+    </a>
+  </div>
+  <br>
+
+  <div class="row no-gutters">
+    <a class="portfolio-item" href="{% url 'Book_Page_cartoon' %}">
+      <span class="caption">
+        <span class="caption-content">
+         <h1>HISTORY</h1>
+        
+        </span>
+      </span>
+      <img class="img-fluid" src="{% static 'images/booktype5.png' %}"alt="">
+    </a>
+  </div>
+  <br>
+
+  <div class="row no-gutters">
+    <a class="portfolio-item" href="{% url 'Book_Page_cartoon' %}">
+      <span class="caption">
+        <span class="caption-content">
+         <h1>LITERARY FICTION</h1>
+        
+        </span>
+      </span>
+      <img class="img-fluid" src="{% static 'images/booktype6.png' %}"alt="">
+    </a>
+  </div>
+  <br>
+
+  <div class="row no-gutters">
+    <a class="portfolio-item" href="{% url 'Book_Page_cartoon' %}">
+      <span class="caption">
+        <span class="caption-content">
+         <h1>POLITICS</h1>
+        
+        </span>
+      </span>
+      <img class="img-fluid" src="{% static 'images/booktype7.png' %}"alt="">
+    </a>
+  </div>
+</div>
+<br>
+
+{% endblock %}

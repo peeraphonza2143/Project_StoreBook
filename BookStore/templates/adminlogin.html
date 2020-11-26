@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}To-Do App : adminlogin{% endblock %}
+
+{% block content %}
+<br>
+<div class="d-flex justify-content-center">
+    <h1><span class="badge badge-pill badge-primary">Admin MODE</span></h1>
+</div>
+<br><br>
+  <div class="container">
+    <div class="row row-cols-3">
+      <div class="col"> <h2><a href="{% url 'add_New_Book' %}" class="badge badge-danger">ADD NEW BOOK</a></h2></div>
+      <div class="col"> <h2> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="#" class="badge badge-success">Borrow a book</a></h2></div>
+      <div class="col"> <h2> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <a href="#" class="badge badge-warning"> Return a book</a></h2></div>
+    </div>
+  </div>
+<br>
+<br>
+<br>
+
+
+{% endblock %}
